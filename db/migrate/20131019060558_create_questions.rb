@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :solution_id
       t.integer :category_id
       t.integer :user_id
-      t.integer :elo
+      t.integer :elo, :null => false, :default => 1200
 
       t.timestamps
     end
