@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Tinder::Application.config.secret_key_base = '5b882609d56ccae6760d124b197ec2734db7706bb532184bc0e71e3f7c54367234c368da9fb90c3f49c6e7ac5f49c3d8655214b18494eb6506c4210f8a7d9785'
+Primary::Application.config.secret_key_base = '5b882609d56ccae6760d124b197ec2734db7706bb532184bc0e71e3f7c54367234c368da9fb90c3f49c6e7ac5f49c3d8655214b18494eb6506c4210f8a7d9785'

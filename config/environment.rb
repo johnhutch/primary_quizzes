@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-Tinder::Application.initialize!
+Primary::Application.initialize!

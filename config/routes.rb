@@ -1,4 +1,4 @@
-Tinder::Application.routes.draw do
+Primary::Application.routes.draw do
 
   # Routes created by Devise install
   devise_for :users

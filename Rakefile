@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Tinder::Application.load_tasks
+Primary::Application.load_tasks
