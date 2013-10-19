@@ -7,7 +7,6 @@
 
 * MySQL setup for production on Linode server
 * Linode server setup, as per Rails Rumble directions
-* User-based tests
 * Email set up, for confirmable user accounts
 
 == Advice for README

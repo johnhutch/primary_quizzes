@@ -24,6 +24,9 @@ RSpec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 
+  # Include Factory Girl syntax to simplify calls to factories
+  config.include FactoryGirl::Syntax::Methods
+
   # Enable the email_spec collection of matchers for testing email
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
