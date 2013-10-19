@@ -8,10 +8,11 @@ Technology Used
 
 * Ruby 2.0.0-p247
 * Rails 4.0.0
-* Mysql 2
-* Rspec, capybara, factory girl testing
-* Devise, CanCan
-* Compass/SASS, bootstrap-sass to avoid using cruddy-old LESS
+* SQLite for testing, Mysql 2 for production
+* Rspec, Capybara, FactoryGirl, Faker testing
+* Devise
+* SASS, bootstrap-sass to avoid using cruddy-old LESS
+* Unfortunately, Compass and CanCan are not supported in Rails 4 yet
 
 To Do
 =====
