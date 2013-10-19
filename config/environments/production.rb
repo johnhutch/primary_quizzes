@@ -5,7 +5,7 @@ Tinder::Application.configure do
   config.cache_classes = true
 
   # What the mailer uses as a host, required by Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => '173.255.219.214' }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both thread web servers
