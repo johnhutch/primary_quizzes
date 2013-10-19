@@ -18,13 +18,13 @@ To Do
 =====
 
 * Frontend
-  * --Bootcamp 3 w/ SASS integration (with Glyicons)--
+  * ~~Bootcamp 3 w/ SASS integration (with Glyicons)~~
   * Create user dashboard (user controls, ELO, create question, answer new question with changeable category)
   * Define answer selection, answer submit, and load new question animations
   * Small content means lots of space. Go big. Bring back the side-nav, give it a good 1/3 of the page width, and style boldly.
 
 * User system
-  * --Devise & Can Can--
+  * ~~Devise & Can Can~~
   * Anonymous users with belated registration
 
 * Question system
