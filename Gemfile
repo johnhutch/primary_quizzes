@@ -27,6 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# User authentication
+gem 'devise', '~> 3.0.0.rc'
+
 group :development, :test do
   # For Rails-specific features
   gem 'rspec-rails', '~> 2.14.0'
