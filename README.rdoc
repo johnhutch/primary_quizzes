@@ -3,6 +3,19 @@
 * Ruby 2.0.0-p247
 * Rails 4.0.0
 
+== To do for Tinder 4
+
+* Rspec install, with Factory Girl
+* Bootcamp 3 integration (with Glyphicons)
+* Devise & Can Can
+* User setup
+* MySQL setup for production on Linode server
+* Linode server setup, as per Rails Rumble directions
+* User-based tests
+* Email set up, for confirmable user accounts
+
+== Advice for README
+
 * System dependencies
 
 * Configuration

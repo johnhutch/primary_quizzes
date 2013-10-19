@@ -27,6 +27,31 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+group :development, :test do
+  # For Rails-specific features
+  gem 'rspec-rails', '~> 2.14.0'
+
+  # For making factories of test data
+  gem 'factory_girl_rails', '~> 4.2.1'
+end
+
+group :test do
+  # generator for fake email addresses, names, etc.
+  gem 'faker', '~> 1.1.2'
+
+  # For programming user interactions
+  gem 'capybara', '~> 2.1.0'
+
+  # Each spec will run with a clean slate
+  gem 'database_cleaner', '~> 1.0.1'
+
+  # Opens default browser on demand
+  gem 'launchy', '~> 2.3.0'
+
+  # Helps test JavaScript-based browser interactions with Capybara
+  gem 'selenium-webdriver', '~> 2.35.1'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
