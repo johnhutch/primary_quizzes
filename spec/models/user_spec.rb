@@ -14,6 +14,10 @@ describe User do
       user = build(:user, email: nil)
       expect(user).to have(2).errors_on(:email)
     end
+    it "is invalide without a username" do
+      user = build(:user, username: nil)
+      expect(user).to have(1).errors_on(:username)
+    end
     it "is invalid without password" do
       user = build(:user, password: nil)
       expect(user).to have(3).errors_on(:password)
