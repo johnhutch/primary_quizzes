@@ -33,9 +33,6 @@ module Primary
       g.stylesheets = false
       g.javascripts = false
       g.helper = false
-
-      # For using Glyphicons font file with Bootstrap 3
-      config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
     end
   end
 end
