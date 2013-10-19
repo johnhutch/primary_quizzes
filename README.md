@@ -29,8 +29,15 @@ To Do
 
 * Question system
   * Create questions with associated choices 
+    * create question form
+    * create nested answer form
+    * create answer selection option within nested answer form (e.g., check the correct answer)
   * Create question/user/choice relational answer table
+    * build proper HABM relationship'd model
+    * create question answering/storing process
   * ELO
+    * build ELO algorithm maths into appropriate models
+    * build out controller actions on question answer
   * Flag bad questions
 
 * Tests

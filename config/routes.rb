@@ -1,5 +1,7 @@
 Primary::Application.routes.draw do
 
+  resources :questions
+
   # Routes created by Devise install
   devise_for :users
 
