@@ -36,6 +36,7 @@ To Do
     * build proper HABM relationship'd model
     * create question answering/storing process
   * ELO
+    * ~~elo added to users and questions~~
     * build ELO algorithm maths into appropriate models
     * build out controller actions on question answer
   * Flag bad questions
