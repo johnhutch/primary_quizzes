@@ -39,4 +39,20 @@ describe User do
     end
   end
 
+  context "just got a question correct" do
+    it "increases the elo correctly" do
+      user = build(:user, elo: 1155)
+      user.update_elo(1242, true)
+      expect(user.elo).to eq(1175)
+    end
+  end
+
+  context "just got a question wrong" do
+    it "decreases the elo correctly" do
+      user = build(:user, elo: 1242)
+      user.update_elo(1155, false)
+      expect(user.elo).to eq(1222)
+    end
+  end
+
 end
