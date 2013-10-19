@@ -5,7 +5,7 @@
 
 == To do for Tinder 4
 
-* Devise & Can Can
+* Can Can
 * User setup
 * MySQL setup for production on Linode server
 * Linode server setup, as per Rails Rumble directions
