@@ -14,7 +14,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @question = Question.new
+    @question = current_user.questions.build
+    4.times { @question.choices.build }
   end
 
   # GET /questions/1/edit

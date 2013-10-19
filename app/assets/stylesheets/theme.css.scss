@@ -1,6 +1,29 @@
 .auth-form {
   margin: 0 auto;
   padding: 15px;
-
   max-width: 330px;
+}
+
+/******* QUESTION FORM *******/
+form.new_question {
+  label {
+    display: block; 
+    clear: both; 
+    margin-top: 1em;
+  }
+  input, textarea {
+    clear: both;
+  }
+  textarea {
+    width: 100%;
+    height: 5em;
+  }
+  input[type="submit"] {
+    margin-top: 1em;
+  }
+  .choices {
+    textarea {
+      height: 1.8em;
+    }
+  }
 }
