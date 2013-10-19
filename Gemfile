@@ -46,9 +46,6 @@ group :development, :test do
   # For making factories of test data
   gem 'factory_girl_rails', '~> 4.2.1'
 
-  # better, faster server
-  gem 'thin'
-
   # better, more useful error pages
   gem 'better_errors'
   gem 'binding_of_caller'
