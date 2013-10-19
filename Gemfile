@@ -30,6 +30,14 @@ gem 'jbuilder', '~> 1.2'
 # User authentication
 gem 'devise', '~> 3.0.0.rc'
 
+# Deployment
+gem 'capistrano', '~> 2.15'
+
+group :production do
+  gem 'mysql2'
+  gem 'therubyracer'
+end
+
 group :development, :test do
   # For Rails-specific features
   gem 'rspec-rails', '~> 2.14.0'
