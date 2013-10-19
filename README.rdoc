@@ -2,6 +2,11 @@
 
 * Ruby 2.0.0-p247
 * Rails 4.0.0
+* User model with Devise 3.0.0.rc
+* Testing with RSpec, Capybara, FactoryGirl, and Faker
+* Basic User model tests
+* Bootstrap 3, with Glyphicons in vendor/assets/fonts/
+* Sass and Compass
 
 == To do for Tinder 4
 
