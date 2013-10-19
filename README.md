@@ -16,6 +16,7 @@ To Do
 -----
 * User model made confirmable with Devise
 * Email tests
+* Plenty more
 
 Not Yet Supported
 -----------------
