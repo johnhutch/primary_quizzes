@@ -48,6 +48,9 @@ group :test do
   # Each spec will run with a clean slate
   gem 'database_cleaner', '~> 1.0.1'
 
+  # Matchers for RSpec to make testing emails go smoothly
+  gem 'email_spec'
+
   # Opens default browser on demand
   gem 'launchy', '~> 2.3.0'
 
