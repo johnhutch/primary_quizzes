@@ -1,10 +1,10 @@
-/.bundle
+.bundle
 
-/db/*.sqlite3
-/db/*.sqlite3-journal
+db/*.sqlite3
+db/*.sqlite3-journal
 
-/log/*.log
-/tmp
+log/*.log
+tmp
 tmp/**/*
 *.swp
 .DS_Store
