@@ -1,10 +1,11 @@
 .bundle
 
+db/schema.rb
 db/*.sqlite3
 db/*.sqlite3-journal
 
 log/*.log
-tmp
+tmp/
 tmp/**/*
 *.swp
 .DS_Store
