@@ -1,50 +1,104 @@
-== Primary
+Primary
+=======
+
+Primary is a multiple choice quiz app that uses a traditional ELO system to rank users and deliver knowledge-level appropriate questions.
+
+Technology Used
+---------------
 
 * Ruby 2.0.0-p247
 * Rails 4.0.0
+* Rspec, capybara, factory girl testing
 
-== To do for Tinder 4
+To Do
+=====
 
-* Rspec install, with Factory Girl
-* Bootcamp 3 integration (with Glyphicons)
-* Devise & Can Can
-* User setup
-* MySQL setup for production on Linode server
-* Linode server setup, as per Rails Rumble directions
-* User-based tests
-* Email set up, for confirmable user accounts
+* Frontend
+  * Bootcamp 3 w/ SASS integration (with Glyicons)
+  * Create user dashboard (user controls, ELO, create question, answer new question with changeable category)
+  * Define answer selection, answer submit, and load new question animations
+  * Small content means lots of space. Go big. Bring back the side-nav, give it a good 1/3 of the page width, and style boldly.
 
-== To do for Primary (Models & Associations)
+* User system
+  * Devise & Can Can
+  * Anonymous users with belated registration
 
-* User model: elo, has_many questions (authored by User), has_many answers (not authored by User)
-* Question model: elo, text, explanation, belongs_to user, has_many choices, has_one subject, solution_id
-* Subject model: name (just three for now: HTML, CSS, Ruby), belongs_to_many questions
-* Choice model: text, belongs_to question
-* Answers model/relational table: user_id, question_id, choice_id
+* Question system
+  * Create questions with associated choices 
+  * Create question/user/choice relational answer table
+  * ELO
+  * Flag bad questions
 
-== To do for Primary (Logic)
+* Tests
+  * Install Rspec, Factory Girl, capybara, database_cleaner, spork, guard-spork_
+  * User-based tests
+  * Question tests
 
-* ELO calculation: in User model, compares User.elo and Question.author.elo, parameters: Question, boolean correct?
-* Better still, a helper method called 'calculate_elo_change' that just takes in two ELOs. (elo1, elo2, boolean). Use the returned number (positive or negative) to add to current ELO (whether it be the User's ELO or the Question's ELO)
-* User controller method named 'submit_answer' or 'answer_question': What is the order of logic here? Check if answer is correct; update ELO of user; update ELO of question; show solution page
-* Present next question based on user's ELO
+* Server Setup
+  * deploy script
+  * gem installs
+  * passenger/apache
+  * database setup
+  * shared path/config/binaries setup
+  * email configuration
 
-== To do for Primary (Views)
-* Always at top of screen: current_user's ELO, Login/Logout button, Create new question button
-* Solution page (after answering): Correct or Wrong, explanation, Answer another question button
+* Extras
+  * Front page blog for news/announcements
+  * ability to add new categories, or sub-categories
+  * Compile-a-test to generate x number of questions in a given ELO range with a permalink to be shared for score competition
+  * Add an image to a question
+  * Give an extra "Are You Sure?" after User selects their answer. It's just a nice thing to do.
 
-== To do for Primary (Design)
+Data Models
+===========
 
-* Select typeface for headers and body (preferably Google font) Monospace is probably a good idea!
-* Utilize Bootstrap 3 as much as possible in forms, layout, etc.
-* Select color palette for a version of red, yellow, green, blue (not necessarily Bootstrap's colors). Maybe we can go brighter, bolder, deeper, something.
-* Personalize the design
+User
+  has_many :questions
+  has_many :comments
+  data: devise stuff, ELO, name? 
 
-== Concerns & Extra Ideas
+Category:
+  has_many :questions
+  belongs_to :category?
+  data: name, parent_category for sub-categories?
+
+Question
+  belongs_to :user
+  has_many :choices
+  has_many :comments
+  data: body, solution_id, category_id, user_id, ELO
+
+Choice
+  belongs_to :question
+  data: body, :question_id, :user_id
+
+Answer
+  some sort of relationshional table for storing a user's answers to questions
+  data: user_id, question_id, choice_id
+
+
+Comment
+  belongs_to :user
+  belongs_to :question
+  data: body
+
+Implementation Notes
+====================
+
+Quiz submission process
+-----------------------
+
+* Both user and question have an ELO
+* user submits answer, controller runs current_user.questions(:param(:id)).check_answer(:param(:choice_id)) (note -- syntax is probalby wrong -- might need to be find(:param(:id) or something liek that)
+* check_answer then verifies and runs the approrpiarate correct/incorrect answer user method
+* user.correct_answer(question) raises user ELO, lowers question ELO, according to ELO algo
+* user.incorrect_answer(question) raises question ELO, lowers user ELo, accoridng to ELO ago
+* controller then finds next unanswered question (user.unanswered_questions(category)) and presents it along with solution page (Correct or Wrong, explanation, option to flag for error)
+
+Concerns & Additional Stuffs
+========
 
 * Users submit code, we must allow all sorts of characters. Is this a security risk?
-* Give an extra "Are You Sure?" after User selects their answer. It's just a nice thing to do.
+-- no, rails sanitizes input
 
-== To do for Primary (Extras)
-* User model: has_many comments
-* Comment model: text, belongs_to user, belongs_to question
+* Monospaced fonts: http://www.fontsquirrel.com/fonts/list/style/Monospaced
