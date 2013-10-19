@@ -9,6 +9,8 @@ Technology Used
 * Ruby 2.0.0-p247
 * Rails 4.0.0
 * Rspec, capybara, factory girl testing
+* Devise, CanCan
+* Compass/SASS bootstrap-sass
 
 To Do
 =====
@@ -45,6 +47,7 @@ To Do
 * Extras
   * Front page blog for news/announcements
   * ability to add new categories, or sub-categories
+  * Oauth authentication for github/twitter logins
   * Compile-a-test to generate x number of questions in a given ELO range with a permalink to be shared for score competition
   * Add an image to a question
   * Give an extra "Are You Sure?" after User selects their answer. It's just a nice thing to do.
