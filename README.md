@@ -6,6 +6,7 @@ Features
 --------
 * Ruby 2.0.0-p247
 * Rails 4.0.0
+* Built-in SQLite 3
 * User model with Devise 3.0.0.rc
 * Testing with RSpec, Capybara, FactoryGirl, and Faker
 * Basic User model tests
