@@ -11,3 +11,7 @@
 *= require bootstrap
 *= require_self
 */
+.form-signin {
+  margin: 0 auto;
+  padding: 15px;
+  max-width: 330px; }
