@@ -52,7 +52,7 @@ To Do
 Data Models
 ===========
 
-User
+`User
   has_many :questions
   has_many :comments
   data: devise stuff, ELO, name? 
@@ -81,6 +81,7 @@ Comment
   belongs_to :user
   belongs_to :question
   data: body
+`
 
 Implementation Notes
 ====================
