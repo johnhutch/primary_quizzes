@@ -35,7 +35,7 @@
 
 == To do for Primary (Design)
 
-* Select typeface for headers and body (preferably Google font)
+* Select typeface for headers and body (preferably Google font) Monospace is probably a good idea!
 * Utilize Bootstrap 3 as much as possible in forms, layout, etc.
 * Select color palette for a version of red, yellow, green, blue (not necessarily Bootstrap's colors). Maybe we can go brighter, bolder, deeper, something.
 * Personalize the design
