@@ -8,9 +8,10 @@ Technology Used
 
 * Ruby 2.0.0-p247
 * Rails 4.0.0
+* Mysql 2
 * Rspec, capybara, factory girl testing
 * Devise, CanCan
-* Compass/SASS bootstrap-sass
+* Compass/SASS, bootstrap-sass to avoid using cruddy-old LESS
 
 To Do
 =====
