@@ -5,5 +5,11 @@ class CreateCategories < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    # Populate with our three categories for now
+    Category.create :name => "HTML"
+    Category.create :name => "CSS"
+    Category.create :name => "Ruby"
+    Category.create :name => "Rails"
   end
 end
