@@ -16,7 +16,11 @@ class QuestionsController < ApplicationController
   # GET /questions/random
   def random
     # Retrieves a random question from the database
-    @question = Question.first
+    if(user_signed_in?)
+      @question = Question.where("user_id != '#{current_user.id}'").order("RANDOM()").first
+    else
+      @question = Question.all.order("RANDOM()").first
+    end
 
     # Should NOT grab a question that
     #   belongs to current_user
