@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
     current_user.save!
 
     if @question.check_for_solution(current_user, @choice)
-      redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that. #{current_user.answers.first}"
+      redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that."
     else
       redirect_to random_question_path, alert: "Whomp whoooomp, that was the wrong answer."
     end
