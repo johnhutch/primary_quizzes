@@ -17,9 +17,9 @@ class QuestionsController < ApplicationController
   # GET /questions/random
   def random
     # Retrieves a random question from the database
-    low_adjusted_elo = current_user.elo - 200
-    high_adjusted_elo = current_user.elo + 200
     if(user_signed_in?)
+      low_adjusted_elo = current_user.elo - 200
+      high_adjusted_elo = current_user.elo + 200
       @all_questions = Question.where("user_id != '#{current_user.id}' AND elo >= #{low_adjusted_elo} AND elo <= #{high_adjusted_elo}").order("RANDOM()")
       @all_questions.each do |q|
         unless current_user.answers.include?(q)
@@ -34,15 +34,19 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/solve/1
   def solve
-    @question = Question.find(params[:id])
-    @choice = Choice.find(params[:choice_id])
-    current_user.answers.build(:question_id => @question.id)
-    current_user.save!
+    if(user_signed_in?)
+      @question = Question.find(params[:id])
+      @choice = Choice.find(params[:choice_id])
+      current_user.answers.build(:question_id => @question.id)
+      current_user.save!
 
-    if @question.check_for_solution(current_user, @choice)
-      redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that."
+      if @question.check_for_solution(current_user, @choice)
+        redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that."
+      else
+        redirect_to random_question_path, alert: "Whomp whoooomp, that was the wrong answer."
+      end
     else
-      redirect_to random_question_path, alert: "Whomp whoooomp, that was the wrong answer."
+      redirect_to random_question_path, notice: "Sign up to find out if you're right."
     end
   end
 
