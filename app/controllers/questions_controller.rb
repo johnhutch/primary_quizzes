@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   # GET /questions/random
   def random
     # Retrieves a random question from the database
+    @question = Question.first
 
     # Should NOT grab a question that
     #   belongs to current_user

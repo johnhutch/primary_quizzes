@@ -1,1 +1,15 @@
-<p>Random Question based on ELO goes here!</p>
+<% if @question.nil? %>
+
+<h2>Wow, there aren't anymore questions for you to answer. If you're this good, you should probably starting making questions.</h2>
+
+<% else %>
+
+<h4><%= @question.category.name %> | <%= @question.elo %> ELO</h4>
+<h2><%= @question.body %></h2>
+<div class="choices">
+  <% @question.choices.each_with_index do |choice, index| %>
+    <%= link_to choice.body, "#", :class => "choice choice-#{index}" %>
+  <% end %>
+</div>
+
+<% end %>

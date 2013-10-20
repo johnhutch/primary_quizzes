@@ -157,3 +157,59 @@ form.new_question {
     }
   }
 }
+
+/******* QUESTION VIEW *******/
+.choices {
+  margin-top: 1em;
+}
+.choice {
+  float: left;
+
+  margin: 15px 5%;
+  padding: 2em;
+
+  width: 40%;
+
+  color: $dark-color;
+  font-size: 1.5em;
+  text-align: center;
+
+  @include border-radius(8px);
+}
+@media screen and (max-width: 40em) {
+  .choice {
+    margin: 15px 2%;
+    padding: 1em;
+
+    width: 96%;
+  }
+}
+.choice:hover {
+  color: $dark-color;
+  text-decoration: none;
+
+  -khtml-opacity: 0.7;
+    -moz-opacity: 0.7;
+         opacity: 0.7;
+          filter: alpha(opacity=70);
+}
+.choice-0 {
+  background-color: $primary-red;
+  border-bottom: 5px solid darken($primary-red, 25%)
+}
+.choice-1 {
+  background-color: $primary-yellow;
+  border-bottom: 5px solid darken($primary-yellow, 25%)
+}
+.choice-2 {
+  background-color: $primary-green;
+  border-bottom: 5px solid darken($primary-green, 25%)
+}
+.choice-3 {
+  background-color: $primary-blue;
+  border-bottom: 5px solid darken($primary-blue, 25%)
+}
+.choice:active, .choice:focus {
+  margin-top: 20px;
+  border-bottom: none;
+}
