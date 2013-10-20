@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order("elo DESC").limit(10)
+    @users = User.all.order("elo DESC").limit(10)
   end
 
   # GET /questions/1
@@ -16,8 +17,16 @@ class QuestionsController < ApplicationController
   # GET /questions/random
   def random
     # Retrieves a random question from the database
+    low_adjusted_elo = current_user.elo - 200
+    high_adjusted_elo = current_user.elo + 200
     if(user_signed_in?)
-      @question = Question.where("user_id != '#{current_user.id}'").order("elo ASC").first
+      @all_questions = Question.where("user_id != '#{current_user.id}' AND elo >= #{low_adjusted_elo} AND elo <= #{high_adjusted_elo}").order("RANDOM()")
+      @all_questions.each do |q|
+        unless current_user.answers.include?(q)
+          @question = q
+          break
+        end
+      end
     else
       @question = Question.order("RANDOM()").first
     end
@@ -27,9 +36,11 @@ class QuestionsController < ApplicationController
   def solve
     @question = Question.find(params[:id])
     @choice = Choice.find(params[:choice_id])
+    current_user.answers.build(:question_id => @question.id)
+    current_user.save!
 
     if @question.check_for_solution(current_user, @choice)
-      redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that."
+      redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that. #{current_user.answers.first}"
     else
       redirect_to random_question_path, alert: "Whomp whoooomp, that was the wrong answer."
     end
@@ -60,6 +71,8 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user = current_user
+    current_user.elo = current_user.elo + rand(3) + 1
+    current_user.save!
 
     respond_to do |format|
       if @question.save

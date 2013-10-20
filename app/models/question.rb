@@ -30,7 +30,7 @@ class Question < ActiveRecord::Base
       self.elo = 100
     end
 
-    self.save
+    self.save!
 
   end
 

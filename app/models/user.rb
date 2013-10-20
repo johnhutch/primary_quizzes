@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :questions
+  has_many :answers
 
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 8 }
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
   # Include default devise modules. Others available are:
@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to the real persisted field like 'username'
   attr_accessor :login
+
+  def update_with_password(params={})
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+    update_attributes(params)
+  end
 
   # Overriding to customize finder methods for authentication with email or username
   def self.find_first_by_auth_conditions(warden_conditions)
@@ -50,7 +58,7 @@ class User < ActiveRecord::Base
       self.elo = 100
     end
 
-    self.save
+    self.save!
 
   end
 

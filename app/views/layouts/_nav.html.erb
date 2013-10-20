@@ -1,6 +1,8 @@
 <!-- Let's hear it for CSS-only logos -->
+<%= link_to root_path, :class => "logo-link" do %>
 <div class="logo text-center"><span class="logo-p">p</span><span class="logo-r">r</span><span class="logo-i">i</span><span class="logo-m">m</span><span class="logo-a">a</span><span class="logo-r">r</span><span class="logo-y">y</span>
 </div>
+<% end %>
 
 
 
@@ -20,4 +22,5 @@
     <li><%= link_to '<i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign up'.html_safe, new_user_registration_path, :method => :get %></li>
   <% end %>
     <li><%= link_to '<i class="glyphicon glyphicon-question-sign"></i>&nbsp;&nbsp;&nbsp;&nbsp;Test yourself'.html_safe, random_question_path, :method => :get %></li>
+    <li><%= link_to '<i class="glyphicon glyphicon-star"></i>&nbsp;&nbsp;&nbsp;&nbsp;Top ten lists'.html_safe, questions_path, :method => :get %></li>
 </ul>

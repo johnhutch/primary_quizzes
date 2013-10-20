@@ -1,1 +1,9 @@
-<h2>Listing all questions would kinda feel like cheating, don't you think?</h2>
+<h2>These are the most difficult questions so far, and who wrote them. You'll have to work your way up to actually see them though. That's how this ELO thing works.</h2>
+<% @questions.each_with_index do |q, index| %>
+  <p><%= index + 1 %>.&nbsp;&nbsp;&nbsp;<%= q.elo %> ELO question written by <%= q.user.username %></p>
+<% end %>
+
+<h2>And here are the top ELO user scores. You can improve your ELO by correctly solving questions, and by creating questions.</h2>
+<% @users.each_with_index do |u, index| %>
+  <p><%= index + 1 %>.&nbsp;&nbsp;&nbsp;<%= u.username %> with <%= u.elo %> ELO</p>
+<% end %>
