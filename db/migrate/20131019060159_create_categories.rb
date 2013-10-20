@@ -9,7 +9,6 @@ class CreateCategories < ActiveRecord::Migration
     # Populate with our three categories for now
     Category.create :name => "HTML"
     Category.create :name => "CSS"
-    Category.create :name => "Ruby"
-    Category.create :name => "Rails"
+    Category.create :name => "Ruby on Rails"
   end
 end
