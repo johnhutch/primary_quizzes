@@ -10,6 +10,11 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+
+  end
+
+  # GET /questions/random
+  def random
     # Retrieves a random question from the database
 
     # Should NOT grab a question that

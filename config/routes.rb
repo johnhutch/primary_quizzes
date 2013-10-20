@@ -1,5 +1,6 @@
 Primary::Application.routes.draw do
 
+  get 'questions/random', to: 'questions#random', as: :random_question
   resources :questions
 
   # Routes created by Devise install
