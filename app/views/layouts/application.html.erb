@@ -9,23 +9,23 @@
 </head>
 <body>
 
-  <div class="row">
+<div class="row">
 
-    <div class="col-md-3 text-left">
-      <%= render "layouts/nav" %>
-    </div>
-
-    <div class="col-md-9 text-left">
-        <% if notice %>
-          <p class="alert alert-warning"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-      <%= yield %>
-    </div>
-
+  <div class="col-md-3">
+    <%= render "layouts/nav" %>
   </div>
+
+  <div class="col-md-9">
+      <% if notice %>
+        <p class="alert alert-warning"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    <%= yield %>
+  </div>
+
+</div>
 
 </body>
 </html>
