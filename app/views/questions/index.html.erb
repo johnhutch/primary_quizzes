@@ -3,7 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>Question</th>
       <th>Body</th>
+      <th>Choices</th>
       <th>Solution</th>
       <th>Category</th>
       <th>User</th>
@@ -17,7 +19,13 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <td><%= question.id %></td>
         <td><%= question.body %></td>
+        <td>
+          <% question.choices.each do |c| %>
+            <%= c.id %> reads <%= c.body %>
+          <% end %>
+        </td>
         <td><%= question.solution_id %></td>
         <td><%= question.category_id %></td>
         <td><%= question.user_id %></td>

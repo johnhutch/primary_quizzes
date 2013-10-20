@@ -1,3 +1,4 @@
+<%= @question.id %>
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -11,16 +12,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :body, "Type your question below" %>
+  <div class="category">
+    <%= f.label :category_id, "Select the question's category" %>
+    <%= f.select :category_id, @categories.collect { |c| [c.name, c.id] }, :selected => params[:category_id], :class => "form-control" %>
+  </div>
+
+  <div class="question">
+    <%= f.label :question, "Type your question below" %>
     <%= f.text_area :body %>
   </div>
 
   <div class="choices">
-    <%= f.fields_for :choices do |c| %>
-      <%= f.label :body, "Answer (a-d -- do county math here)" %>
+  <% @question.choices.each.with_index do |choice, index| %>
+    <%= f.fields_for :choices, choice do |c| %>
+      <% if index == 0 %>
+        <%= f.label :body, "The correct answer goes here (we'll randomize it for others)" %>
+        <%= f.hidden_field :solution, :value => choice %>
+      <% else %>
+        <%= f.label :body, "A different, incorrect answer" %>
+      <% end %>
       <%= c.text_area :body %>
     <% end %>
+  <% end %>
   </div>
 
   <div class="actions">

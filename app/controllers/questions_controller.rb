@@ -10,25 +10,47 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    # Retrieves a random question from the database
+
+    # Should NOT grab a question that
+    #   belongs to current_user
+    #   was already answered by current_user
   end
 
   # GET /questions/new
   def new
+    # Initiate question, added to current_user
     @question = current_user.questions.build
+
+    # Create four choices
     4.times { @question.choices.build }
+    #@choices = @question.choices
+
+    # Get all categories for form
+    @categories = Category.all
   end
 
   # GET /questions/1/edit
   def edit
+    #@question = Question.find_by_id(:id)
+    #@choices = @question.choices
+    @categories = Category.all
   end
 
   # POST /questions
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
 
     respond_to do |format|
       if @question.save
+        # Couldn't use solution from params because the choice isn't saved yet, so it has no id
+        # That's why this logic is in here, though it seems real bad
+        # Could redirect to a set_solution method in this controller maybe?
+        @question.solution_id = @question.choices.first.id
+        @question.save
+
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
       else
@@ -41,8 +63,15 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+
     respond_to do |format|
       if @question.update(question_params)
+        # Couldn't use solution from params because the choice isn't saved yet, so it has no id
+        # That's why this logic is in here, though it seems real bad
+        # Could redirect to a set_solution method in this controller maybe?
+        @question.solution_id = @question.choices.first.id
+        @question.save
+
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
