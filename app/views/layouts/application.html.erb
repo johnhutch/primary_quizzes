@@ -9,13 +9,6 @@
 </head>
 <body>
 
-  <% if notice %>
-    <p class="alert alert-warning"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-
 <div class="container">
   <div class="row">
 
@@ -24,6 +17,12 @@
     </div>
 
     <div class="col-md-9 text-left">
+        <% if notice %>
+          <p class="alert alert-warning"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
       <%= yield %>
     </div>
 
