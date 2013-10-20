@@ -31,17 +31,17 @@ To Do
 
 * Question system
   * ~~Create questions with associated choices~~
-    * ~~create question form~~
-    * ~~create nested answer form~~
-    * ~~create answer selection option within nested answer form~~
+    * * ~~create question form~~
+    * * ~~create nested answer form~~
+    * * ~~create answer selection option within nested answer form~~
   * Create separate on-page editing possibilities for question (disable big old regular editing)
   * Create question/user/choice relational answer table
-    * build proper HABM relationship'd model
-    * create question answering/storing process
+    * * build proper HABM relationship'd model
+    * * create question answering/storing process
   * ELO
-    * ~~elo added to users and questions~~
-    * ~~build ELO algorithm maths into appropriate models~~
-    * build out controller actions on question answer
+    * * ~~elo added to users and questions~~
+    * * ~~build ELO algorithm maths into appropriate models~~
+    * * build out controller actions on question answer
   * Flag bad questions
 
 * Tests
