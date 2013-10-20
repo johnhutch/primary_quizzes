@@ -1,12 +1,4 @@
-<% if user_signed_in? %>
-
-<h1>You have successfully log in.</h3>
-<%= link_to 'Log out <i class="glyphicon glyphicon-remove-sign"></i>'.html_safe, destroy_user_session_path, :method => :delete, :class => "btn btn-default" %>
-
-<% else %>
-
-<h1>Welcome, please log in or sign up.</h1>
-<%= link_to 'Log in <i class="glyphicon glyphicon-user"></i>'.html_safe, new_user_session_path, :method => :get, :class => "btn btn-default" %>
-<%= link_to "Sign up", new_user_registration_path, :method => :get, :class => "btn btn-default" %>
-
-<% end %>
+<p>Primary is a multiple choice quiz app that uses a <em>traditional ELO system</em> to rank users and deliver knowledge-level appropriate questions. Primary provides a simple way to keep your web dev skills sharp, and keep your competition sharper.</p>
+<p>The multiple choice format makes the testing process quick> &mdash; perfect for those times when you're away from your projects.</p>
+<p>As an anonymous user, you can test yourself on questions from many categories. For the Rails Rumble, the categories are limited to: <em>HTML, CSS, and Ruby</em> (cause hey, we're all in that kind of mindframe). They range in difficulty based on past user success rate.</p>
+</p>At any time, <em>register to save your progress</em> (including your ELO). Registered users are able to create questions, which affects their ELO even more.</p>
