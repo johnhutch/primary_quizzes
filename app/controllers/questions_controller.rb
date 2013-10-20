@@ -17,14 +17,22 @@ class QuestionsController < ApplicationController
   def random
     # Retrieves a random question from the database
     if(user_signed_in?)
-      @question = Question.where("user_id != '#{current_user.id}'").order("RANDOM()").first
+      @question = Question.where("user_id != '#{current_user.id}'").order("elo ASC").first
     else
-      @question = Question.all.order("RANDOM()").first
+      @question = Question.order("RANDOM()").first
     end
+  end
 
-    # Should NOT grab a question that
-    #   belongs to current_user
-    #   was already answered by current_user
+  # GET /questions/1/solve/1
+  def solve
+    @question = Question.find(params[:id])
+    @choice = Choice.find(params[:choice_id])
+
+    if @question.check_for_solution(current_user, @choice)
+      redirect_to random_question_path, notice: "Correctamundo! Well done! Cheers! and all that."
+    else
+      redirect_to random_question_path, alert: "Whomp whoooomp, that was the wrong answer."
+    end
   end
 
   # GET /questions/new
@@ -73,7 +81,6 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-
     respond_to do |format|
       if @question.update(question_params)
         # Couldn't use solution from params because the choice isn't saved yet, so it has no id

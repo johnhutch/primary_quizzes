@@ -8,7 +8,7 @@
 <h2><%= @question.body %></h2>
 <div class="choices">
   <% @question.choices.shuffle.each_with_index do |choice, index| %>
-    <%= link_to choice.body, "#", :class => "choice choice-#{index}" %>
+    <%= link_to choice.body, solve_question_path(:id => @question.id, :choice_id => choice.id), :class => "choice choice-#{index}" %>
   <% end %>
 </div>
 

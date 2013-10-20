@@ -25,6 +25,42 @@ class Question < ActiveRecord::Base
     expected_score = 1 / (1 + 10**((other_elo - self.elo) / rating_disparity))
 
     self.elo = self.elo + match_importance * (actual_score - expected_score)
+
+    if self.elo < 100
+      self.elo = 100
+    end
+
+    self.save
+
+  end
+
+  def check_for_solution(solver, choice)
+    solver_elo = solver.elo
+    question_elo = self.elo
+
+    # User got the question right
+    if (self.solution_id == choice.id)
+
+      # User won against question
+      solver.update_elo(question_elo, true)
+
+      # Question lost to user
+      self.update_elo(solver_elo, false)
+
+      return true
+
+    # User did NOT get the question right
+    else
+
+      # User lost to question
+      solver.update_elo(question_elo, false)
+
+      # Question won against user
+      self.update_elo(solver_elo, true)
+
+      return false
+    end
+
   end
 
 end

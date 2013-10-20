@@ -45,6 +45,13 @@ class User < ActiveRecord::Base
     expected_score = 1 / (1 + 10**((other_elo - self.elo).to_f / rating_disparity))
 
     self.elo = (self.elo + match_importance * (actual_score - expected_score)).round(0)
+
+    if self.elo < 100
+      self.elo = 100
+    end
+
+    self.save
+
   end
 
 end
