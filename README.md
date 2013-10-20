@@ -19,13 +19,15 @@ To Do
 
 * Frontend
   * ~~Bootcamp 3 w/ SASS integration (with Glyicons)~~
-  * Create user dashboard (user controls, ELO, create question, answer new question with changeable category)
+  * ~~Create user dashboard (user controls, ELO, create question~~
+  * new question with changeable category
   * Define answer selection, answer submit, and load new question animations
-  * Small content means lots of space. Go big. Bring back the side-nav, give it a good 1/3 of the page width, and style boldly.
+  * Change colors of all Bootstrap alerts/buttons to the 4 colors of Primary
+  * ~~Small content means lots of space. Go big. Bring back the side-nav, give it a good 1/3 of the page width, and style boldly.~~
 
 * User system
   * ~~Devise & Can Can~~
-  * Anonymous users with belated registration
+  * ~~Anonymous users~~ with belated registration
 
 * Question system
   * Create questions with associated choices 
@@ -42,16 +44,16 @@ To Do
   * Flag bad questions
 
 * Tests
-  * Install Rspec, Factory Girl, capybara, database_cleaner, spork, guard-spork_
-  * User-based tests
+  * ~~Install Rspec, Factory Girl, capybara, database_cleaner~~
+  * ~~User-based tests~~
   * Question tests
 
 * Server Setup
-  * deploy script
-  * gem installs
-  * passenger/apache
+  * ~~deploy script~~
+  * ~~gem installs~~
+  * ~~passenger/apache~~
   * database setup
-  * shared path/config/binaries setup
+  * ~~shared path/config/binaries setup~~
   * email configuration
 
 * Extras
