@@ -16,5 +16,5 @@
     <li><%= link_to '<i class="glyphicon glyphicon-log-in"></i>&nbsp;&nbsp;&nbsp;&nbsp;Log in'.html_safe, new_user_session_path, :method => :get %></li>
     <li><%= link_to '<i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign up'.html_safe, new_user_registration_path, :method => :get %></li>
   <% end %>
-    <li><% link_to ' <i class="glyphicon glyphicon-question-sign"></i>&nbsp;&nbsp;&nbsp;&nbsp;Test yourself', root_path %></li>
+    <li><%= link_to '<i class="glyphicon glyphicon-question-sign"></i>&nbsp;&nbsp;&nbsp;&nbsp;Test yourself'.html_safe, root_path, :method => :get %></li>
 </ul>
