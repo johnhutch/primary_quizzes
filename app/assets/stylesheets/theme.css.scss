@@ -74,31 +74,37 @@ em {
 }
 
 /******* BIG LAYOUT *******/
-.row {
+nav {
+  float: left;
+
+  margin: 0;
+  padding: 1em;
+
+  width: 30%;
   height: 100%;
-}
-.col-md-3 {
-  color: #ffffff;
+
   background-color: $dark-color;
 }
-@media (min-width: 992px) {
-/* From Bootstrap's responsive numbers */
-  .col-md-3 {
-    height: 100%;
-  }
-  .col-md-9 {
-    height: 100%;
-  }
-}
-.col-md-9 {
-  padding: 15px 25px;
-  background-color: #ffffff;
-}
+section {
+  float: right;
 
+  margin: 0;
+  padding: 1em;
+
+  width: 70%;
+  height: 100%;
+}
+@media screen and (max-width: 50em) {
+  nav, section {
+    width: 100%;
+    height: auto;
+  }
+}
 /******* LOGO *******/
 .logo {
+  margin-bottom: .5em;
   font-family: $mono-family;
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: bold;
   text-transform: lowercase;
 }
@@ -109,20 +115,16 @@ em {
 .logo-a { color: $primary-blue; }
 .logo-y { color: $primary-green; }
 
-/******* SIDE NAV *******/
-#user-info {
-  padding: 15px;
-
-  color: #ffffff;
-}
-.nav-pills li a {
+/******* NAV *******/
+#user-info, .nav > li > a {
+  padding: .555555555555555em .833333333333333em;
   color: #ffffff;
   background-color: $dark-color;
 }
-.nav-pills li a:hover {
+.nav > li > a:hover {
   color: $text-color;
 }
-.nav-pills li.active a, .nav-pills li.active a:hover {
+.nav > li.active > a, .nav > li.active > a:hover {
   color: $text-color;
   background-color: #ffffff;
 }

@@ -2,12 +2,15 @@
 <div class="logo text-center"><span class="logo-p">p</span><span class="logo-r">r</span><span class="logo-i">i</span><span class="logo-m">m</span><span class="logo-a">a</span><span class="logo-r">r</span><span class="logo-y">y</span>
 </div>
 
-<div id="user-info">
-  <div class="username"><% if user_signed_in? %><%= current_user.username %><% else %>Anonymous User<% end %></div>
-  <div class="elo"><% if user_signed_in? %><%= current_user.elo %><% else %>1200<% end %> ELO</div>
-</div>
+
 
 <ul class="nav nav-pills nav-stacked">
+    <li>
+      <div id="user-info">
+        <div class="username"><% if user_signed_in? %><%= current_user.username %><% else %>Anonymous User<% end %></div>
+        <div class="elo"><% if user_signed_in? %><%= current_user.elo %><% else %>1200<% end %> ELO</div>
+      </div>
+    </li>
   <% if user_signed_in? %>
     <li><%= link_to '<i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Edit info'.html_safe, edit_user_registration_path, :method => :get %></li>
     <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;&nbsp;&nbsp;Log out'.html_safe, destroy_user_session_path, :method => :delete %><li>
