@@ -33,7 +33,6 @@ Primary::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Add the fonts path
-  config.assets.paths << "#{Rails.root}/app/assets/fonts"
-  confit.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+  # Don't fall back to assets pipeline if a precompiled asset is missed
+  config.assets.compile = true
 end
