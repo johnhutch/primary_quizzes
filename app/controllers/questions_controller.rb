@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
     if(user_signed_in?)
       low_adjusted_elo = current_user.elo - 200
       high_adjusted_elo = current_user.elo + 200
-      @all_questions = Question.where("user_id != '#{current_user.id}' AND elo >= #{low_adjusted_elo} AND elo <= #{high_adjusted_elo}").order("RANDOM()")
+      @all_questions = Question.where("user_id != '#{current_user.id}' AND elo >= #{low_adjusted_elo} AND elo <= #{high_adjusted_elo}").order("elo RAND()")
       @all_questions.each do |q|
         unless current_user.answers.include?(q)
           @question = q
